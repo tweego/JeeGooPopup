@@ -1,0 +1,38 @@
+﻿*{margin:0; padding:0}
+body, html{height:100%}
+body{font-family:Arial, Sans-Serif; font-size:.8em; line-height:1.4em; color:#000; background:#eee}
+table{border-collapse:collapse}
+p{padding-bottom:15px}
+a img{border:0}
+ul, ol{list-style-position:inside}
+.clear{clear:both}
+#outer{position:relative; width:980px; margin:0 auto; min-height:100%}
+* html #outer{height:100%}
+#header{position:relative; padding:25px 0; text-align:center}
+#header h1{font-size:2em; font-style:italic; color:#235a8b; padding-bottom:10px}
+h1.title{padding:10px 0 20px 0; color:#235a8b; font-style:italic; text-align:center; font-size:20px}
+#header h1 span.jg_red{color:#b90f14}
+#header h1 span.jg_green{color:#90b141}
+#header h1 span.jg_yellow{color:#e9a407}
+#header h1 span.jg_blue{color:#549bdd}
+#header h2{text-align:center; padding-top:10px; font-size:1em; font-weight:normal; color:#00294d}
+#content h2, h3{color:#8b2323; font-size:1.4em; padding-bottom:10px}
+.text, select{padding:5px; width:250px; border:solid 1px #aaa}
+select{width:210px}
+label{text-align:right; padding:0 5px 0 0; width:130px; display:inline-block}
+div.row{margin:0 0 5px 0}
+h2{font-size:14px; margin:30px 0 0 135px}
+#code{width:400px; height:300px; margin-bottom:10px}
+#openpopup{background:url(button.png) no-repeat; width:150px; height:45px; display:inline-block; border:0; text-indent:-9999px; cursor:pointer; position:fixed; top:20px; right:20px}
+#next{position:fixed; right:20px; bottom:20px}
+#prev{position:fixed; left:20px; bottom:20px}
+input.button{padding:3px 15px; margin:0 5px}
+/* confirm example */
+#records{width:100%}
+#records td, #records th{padding:5px 10px; border-bottom:solid 1px #aaa; text-align:left}
+#records th{background:#235a8b; color:#fff}
+#records td.delete{color:#f00; font-weight:bold; cursor:pointer}
+div.message{font-weight:bold; font-size:14px; padding:30px 0}
+div.message, div.buttons{text-align:center}
+/* select example */
+.edit, .select{color:Green; cursor:pointer}

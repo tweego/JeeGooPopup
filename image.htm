@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Jeegoopopup, a jQuery popup plugin</title>
+    <link href="style.css" rel="Stylesheet" type="text/css" />
+    <style type="text/css">
+        #content{padding:50px; text-align:center}
+    </style>
+    <link href="jeegoopopup/skins/basic/style.css" rel="Stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="jeegoopopup/jquery.jeegoopopup.1.0.0.js"></script>
+    
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+            $('a.popup').click(function(e){
+                $.jeegoopopup.open({
+                    html: '<img src="' + $(this).attr('href') + '" />',              
+                    skinClass: 'jg_popup_basic', 
+                    resizable: false,
+                    draggable: true,
+                    fixed: false
+                });
+
+                $('#jg_popup_content').unbind('click.close').bind('click.close', function(){
+                    $.jeegoopopup.close();
+                });
+                return false;
+            });
+
+           
+        });
+        //]]>
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="header">
+            <h1><span class="jg_red">J</span><span class="jg_green">ee</span><span class="jg_yellow">g</span><span class="jg_blue">oo</span>popup, <span style="font-size:.7em">a jQuery popup plugin</span></h1>
+            Copyright &copy; 2009 - 2013 <a href="http://www.tweego.nl" target="_blank">TweeGo</a>: <a href="http://www.tweego.nl/jeegoopopup" target="_blank">http://www.tweego.nl/jeegoopopup</a>
+        </div>          
+        <div id="content"> 
+            <p>Click the image to open a popup.</p>
+            <a href="dog.jpg" class="popup"><img src="dog.jpg" style="width:100px"/></a>      
+        </div>  
+    </div>
+
+    <a id="prev" href="tooltip.htm">Use popup as tooltip</a>
+  
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Jeegoopopup, a jQuery popup plugin</title>
+    <link href="style.css" rel="Stylesheet" type="text/css" />
+    <link href="jeegoopopup/skins/tooltip/style.css" rel="Stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="jeegoopopup/jquery.jeegoopopup.1.0.0.js"></script>
+    
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+           
+            $('#content a[data-tooltip]').mouseover(function(e){
+                
+                var $this = $(this);
+                var offset = $this.offset();
+
+                $.jeegoopopup.open({
+                    html: '<div style="padding:0 0 20px 0">' + $this.data('tooltip') + '</div>',
+                    width: 300,
+                    height: 'auto', 
+                    left: offset.left + $this.width() / 2 - 160, // Center popup above link.
+                    skinClass: 'jg_popup_tooltip', 
+                    resizable: false,
+                    draggable: false,
+                    overlay: false,
+                    fadeIn: 0,
+                    onOpen: function(){
+                        // Offset popup to the top.
+                        $.jeegoopopup.top(offset.top - $('#jg_popup_inner').outerHeight());
+                    }
+                });
+
+                return false;
+            });
+
+            $(document).mouseover(function(){
+                $.jeegoopopup.close();
+            });
+        });
+        //]]>
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="header">
+            <h1><span class="jg_red">J</span><span class="jg_green">ee</span><span class="jg_yellow">g</span><span class="jg_blue">oo</span>popup, <span style="font-size:.7em">a jQuery popup plugin</span></h1>
+            Copyright &copy; 2009 - 2013 <a href="http://www.tweego.nl" target="_blank">TweeGo</a>: <a href="http://www.tweego.nl/jeegoopopup" target="_blank">http://www.tweego.nl/jeegoopopup</a>
+        </div>          
+        <div id="content">   
+            <p>Mouseover the links to reveal a tooltip.</p>      
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris cursus nibh eu nisl fermentum, dictum laoreet dolor iaculis. Mauris vulputate, dui quis hendrerit rhoncus, nisl lorem consectetur sem, eget pretium orci quam nec turpis. Nunc ac luctus justo. Morbi at elit ultrices, adipiscing justo sed, placerat massa. Sed varius, nunc vel dapibus dictum, enim nunc ultricies orci, nec ultricies ipsum elit et urna. Fusce sit amet viverra est. Maecenas fermentum ipsum ut adipiscing dapibus. Praesent et tristique dolor. Praesent ultricies, justo vitae elementum consequat, nisi lacus sollicitudin est, commodo auctor lectus ipsum non nibh. Suspendisse porttitor non tortor quis fringilla. Donec vitae ligula vitae nulla posuere convallis. Maecenas vestibulum ipsum non massa accumsan, sit amet mattis sapien fringilla.</p> 
+            <p>Cras ullamcorper nunc neque, at <a href="#" data-tooltip="Aliquam mattis sagittis scelerisque. Aenean auctor pellentesque urna, sed suscipit sem.">pulvinar magna porta</a> nec. Sed lobortis, tortor blandit laoreet luctus, leo augue sodales elit, a scelerisque augue diam non nulla. Vestibulum sapien lacus, egestas. Aliquam iaculis tortor in nisl volutpat, vel venenatis erat commodo. Integer aliquam nibh id eros dictum, nec blandit ipsum tincidunt. Aliquam erat volutpat. Proin suscipit est orci, quis tincidunt risus condimentum sit amet. Etiam ac mattis dolor. Sed vitae velit tempor, hendrerit velit condimentum, blandit quam. Curabitur eu tempus urna, sit amet tempus orci. Phasellus quam lacus, sodales et purus a, imperdiet euismod libero. In quis purus ac leo mattis porttitor nec sed lectus. Donec posuere sodales hendrerit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent sem leo, scelerisque a lobortis eget, adipiscing ac risus. Vivamus a tempus lorem. </p>
+            <p>Vestibulum eu viverra massa. Fusce vel mi eget diam hendrerit bibendum fermentum eget diam. Duis ultricies odio eu lorem malesuada suscipit. Nam dapibus tempor erat a rhoncus. Aliquam lacinia dolor quis nunc volutpat congue. <a href="#" data-tooltip="Mauris cursus nibh eu nisl fermentum, dictum laoreet dolor iaculis. Mauris vulputate, dui quis hendrerit rhoncus, nisl lorem consectetur sem, eget pretium orci quam nec turpis. Nunc ac luctus justo.">vel elementum id, interdum ut erat</a>.Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla eu placerat nisi. Aliquam vel metus eu quam tincidunt pulvinar in et nunc. Suspendisse venenatis enim sit amet justo malesuada, consectetur ultricies justo iaculis. Praesent consectetur augue sagittis lacinia rutrum. Nam porttitor sit amet magna ac vehicula. Nulla porttitor vestibulum ligula, at bibendum turpis interdum ac. Proin pellentesque nibh ac bibendum semper. Vestibulum ac purus ipsum.</p>
+            <p>Maecenas ac volutpat mi. Nunc sit amet tempus arcu. Aliquam mattis sagittis scelerisque. Aenean auctor pellentesque urna, sed suscipit sem. Sed faucibus ut velit et rhoncus. Nunc nulla metus, consectetur ut lorem vitae, elementum elementum lorem. Suspendisse ipsum velit, interdum at sollicitudin sit amet, interdum sed lacus consequat rhoncus commodo. In nec augue est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed mauris risus, pretium eleifend venenatis sit amet, eleifend consequat mauris. Phasellus volutpat nunc eget interdum accumsan. Nunc sed sem venenatis magna tempor mattis. Suspendisse egestas lacus libero, et fermentum orci aliquam vehicula. Pellentesque ut tempus massa.</p>
+            <p>Curabitur ut viverra tellus. Donec accumsan justo nisi, eu mattis dolor scelerisque sit amet. Donec commodo varius dapibus. Curabitur nibh quam, volutpat ac tempor gravida, vehicula eu orci.             <a href="#" data-tooltip="Donec accumsan justo nisi, eu mattis dolor scelerisque sit amet. Donec commodo varius dapibus. Curabitur nibh quam, volutpat ac tempor gravida, vehicula eu orci. Curabitur auctor lacus eros, ac tincidunt dolor vestibulum ut. Quisque et lobortis quam, et convallis tellus. Integer vestibulum arcu volutpat quam consectetur ultrices eu a ante. Praesent a diam adipiscing, semper quam nec, ornare dolor. Nullam nisi massa, pretium eu ultricies ut, ultrices et lacus. Integer libero lectus, luctus a urna qui.">Aliquam</a> auctor lacus eros, ac tincidunt dolor vestibulum ut. Quisque et lobortis quam, et convallis tellus. Integer vestibulum arcu volutpat quam consectetur ultrices eu a ante. Praesent a diam adipiscing, semper quam nec, ornare dolor. Nullam nisi massa, pretium eu ultricies ut, ultrices et lacus. Integer libero lectus, luctus a urna quis, mattis eleifend lacus. Proin a porttitor elit, et varius mi. Suspendisse a dui at felis porttitor tincidunt nec a justo. Nam euismod imperdiet mi ut varius. Nunc dui neque, euismod mollis vehicula ut, tincidunt a nunc. In a molestie lectus, ac tincidunt nisi.</p>
+        </div>  
+    </div>
+
+    <a id="prev" href="select.htm">Use popup in database applications</a>
+    <a id="next" href="image.htm">Use popup as image popup</a>
+  
+</body>
+</html>

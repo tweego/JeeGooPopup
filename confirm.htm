@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Jeegoopopup, a jQuery popup plugin</title>
+    <link href="style.css" rel="Stylesheet" type="text/css" />
+    <link href="jeegoopopup/skins/round/style.css" rel="Stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="jeegoopopup/jquery.jeegoopopup.1.0.0.js"></script>
+    
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+
+            $('td.delete').click(function(){
+                
+                var row = $(this).parents('tr:eq(0)');
+
+                // Dialog html.
+                var html = 
+                '<div class="confirm">' + 
+                    '<div class="message">Are you sure you want to delete ' + $(this).parent().find('td:eq(1)').text() + '?</div>' + 
+                    '<div class="buttons">' + 
+                        '<input id="ok" type="button" value="Ok" class="button" />' + 
+                        '<input id="cancel" type="button" value="Cancel" class="button" />' + 
+                    '</div>' + 
+                '</div>';
+
+                var options = {
+                    html: html,
+                    width: 450,
+                    height: 110,
+                    center: true,
+                    skinClass: 'jg_popup_round', 
+                    resizable: false,
+                    scrolling: 'no',
+                    onOpen: function(){
+                        // Bind ok and cancel handlers to buttons in popup html.
+                        $('#ok').unbind().click(function(){
+                            window.parent.$.jeegoopopup.close(true); // Confirm, close popup with argument.
+                        });
+                        $('#cancel').unbind().click(function(){
+                            window.parent.$.jeegoopopup.close(); // Cancel, close popup without arguments.
+                        });
+                    },
+                    onClose: function(ok){
+                        if(ok) // If popup was closed with argument user clicked 'Ok'.
+                        {
+                            row.remove(); // Delete record.
+                        }
+                    }
+                };
+
+                $.jeegoopopup.open(options);
+            });
+        });
+        //]]>
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="header">
+            <h1><span class="jg_red">J</span><span class="jg_green">ee</span><span class="jg_yellow">g</span><span class="jg_blue">oo</span>popup, <span style="font-size:.7em">a jQuery popup plugin</span></h1>
+            Copyright &copy; 2009 - 2013 <a href="http://www.tweego.nl" target="_blank">TweeGo</a>: <a href="http://www.tweego.nl/jeegoopopup" target="_blank">http://www.tweego.nl/jeegoopopup</a>
+        </div>          
+        <div id="content">
+            <div style="width:900px; margin:0 auto">      
+                <p>Use the x "button" to delete records.</p>      
+                <table id="records">
+                    <tr><th>Id</th><th>Name</th><th>Job</th><th>Salary</th><th>Hiredate</th><th></th></tr>
+                    <tr><td>1000</td><td>John Smith</td><td>CEO</td><td>8000</td><td>11-06-2005</td><td class="delete">X</td></tr>
+                    <tr><td>1001</td><td>Jane Doe</td><td>Regional Manager</td><td>6000</td><td>01-22-2002</td><td class="delete">X</td></tr>
+                    <tr><td>1002</td><td>Bill Johnson</td><td>Assistant Regional Manager</td><td>3500</td><td>05-30-2004</td><td class="delete">X</td></tr>
+                </table>
+            </div>
+        </div>  
+    </div>
+
+    <a id="prev" href="index.htm">Configure popup</a>
+    <a id="next" href="select.htm">Use popup in database applications</a>
+  
+</body>
+</html>

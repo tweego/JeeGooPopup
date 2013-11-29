@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Employee</title>
+    <link href="style.css" rel="Stylesheet" type="text/css" />
+    <style type="text/css">
+        body{background-color:transparent}
+        #content{width:600px; margin:0 auto}
+        h1.title{padding:10px 0 20px 0; color:#235a8b; font-style:italic; text-align:center; font-size:20px}
+        #center{padding:3px 10px}
+    </style>
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+            
+            // Change popup width and height to fit content dimensions.
+            window.parent.$.jeegoopopup.width($('#content').width()).height($('#content').height());
+
+            // Select a job.
+            $('td.select').click(function(){
+                window.parent.$.jeegoopopup.close({
+                    id: $(this).parent().find('td:eq(0)').text(),
+                    job: $(this).parent().find('td:eq(1)').text(),
+                    salary: $(this).parent().find('td:eq(2)').text()
+                });
+            });
+        });
+        //]]>
+    </script>
+</head>
+<body>
+    <div id="content">
+        <table id="records">
+            <tr><th>Id</th><th>Job</th><th>Salary</th><th></th></tr>
+            <tr><td>876</td><td>CEO</td><td>8000</td><td class="select">Select</td></tr>
+            <tr><td>877</td><td>Regional Manager</td><td>6000</td><td class="select">Select</td></tr>
+            <tr><td>878</td><td>Assistant Regional Manager</td><td>3500</td><td class="select">Select</td></tr>
+            <tr><td>879</td><td>Office manager</td><td>2500</td><td class="select">Select</td></tr>
+            <tr><td>880</td><td>Janitor</td><td>1800</td><td class="select">Select</td></tr>
+        </table>
+    </div>  
+</body>
+</html>

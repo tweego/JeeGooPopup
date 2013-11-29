@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>iFrame</title>
+    <link href="style.css" rel="Stylesheet" type="text/css" />
+    <style type="text/css">
+        body{background-color:transparent}
+        #content{width:450px; margin:0 auto}
+        #center{padding:3px 10px}
+    </style>
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+            
+            // Select different skin.
+            $('#skin').change(function(){
+                var val = $(this).val();
+                if(val)
+                    window.parent.$.jeegoopopup.skinClass(val);
+            });
+
+            // Turn overlay on or off.
+            $('input[name="overlay"]').click(function(){
+                window.parent.$.jeegoopopup.overlay($('#overlay').is(':checked'));
+            });
+
+            // Change overlay opacity.
+            $('#opacity').keyup(function(){
+                window.parent.$.jeegoopopup.opacity(parseInt($('#opacity').val()));
+            });
+
+            // Change overlay color.
+            $('#color').change(function(){
+                var val = $(this).val();
+                if(val)
+                    window.parent.$.jeegoopopup.overlayColor(val);
+            });
+
+            // Turn draggable on or off.
+            $('input[name="draggable"]').click(function(){
+                window.parent.$.jeegoopopup.draggable($('#draggable').is(':checked'));
+            });
+
+            // Turn resizable on or off.
+            $('input[name="resizable"]').click(function(){
+                window.parent.$.jeegoopopup.resizable($('#resizable').is(':checked'));
+            });
+
+            // Change parent overflow scrolling.
+            $('input[name="parentScrolling"]').click(function(){
+                window.parent.$.jeegoopopup.parentScrolling($('#parentScrolling').is(':checked'));
+            });
+
+            // Change fixed.
+            $('input[name="fixed"]').click(function(){
+                window.parent.$.jeegoopopup.fixed($('#fixed').is(':checked'));
+            });
+
+            // Change title.
+            $('#title').keyup(function(){
+                window.parent.$.jeegoopopup.title($('#title').val());
+            });
+
+            // Change width.
+            $('#titleLength').keyup(function(){
+                window.parent.$.jeegoopopup.maxTitleLength(parseInt($('#titleLength').val()));
+            });
+
+            // Change width.
+            $('#width').keyup(function(){
+                window.parent.$.jeegoopopup.width(parseInt($('#width').val()) || 'auto');
+            });
+
+            // Change height.
+            $('#height').keyup(function(){
+                window.parent.$.jeegoopopup.height(parseInt($('#height').val()) || 'auto');
+            });
+
+            // Change top position.
+            $('#top').keyup(function(){
+                window.parent.$.jeegoopopup.top(parseInt($('#top').val()) || 0);
+            });
+
+            // Change left position.
+            $('#left').keyup(function(){
+                window.parent.$.jeegoopopup.left(parseInt($('#left').val()) || 0);
+            });
+
+            // Change right position.
+            $('#right').keyup(function(){
+                window.parent.$.jeegoopopup.right(parseInt($('#right').val()) || 0);
+            });
+
+            // Change bottom position.
+            $('#bottom').keyup(function(){
+                window.parent.$.jeegoopopup.bottom(parseInt($('#bottom').val()) || 0);
+            });
+
+            // Center popup.
+            $('#center').click(function(){
+                window.parent.$.jeegoopopup.center();
+            });
+
+        });
+        //]]>
+    </script>
+</head>
+<body>
+    <div id="content">
+        <h1 class="title">Change popup properties from within iframe</h1>
+        <div class="row">
+            <label for="title">Title</label><input id="title" type="text" class="text" />
+        </div>
+        <div class="row">
+            <label for="titleLength">Maximum title length</label><input id="titleLength" type="text" class="text" />
+        </div>
+        <div class="row">
+            <label for="width">Width</label><input id="width" type="text" class="text" /> px
+        </div>
+        <div class="row">
+            <label for="height">Height</label><input id="height" type="text" class="text" /> px
+        </div>
+            <div class="row">
+            <label for="left">Left</label><input id="left" type="text" class="text" /> px
+        </div>
+        <div class="row">
+            <label for="top">Top</label><input id="top" type="text" class="text" /> px
+        </div>
+        <div class="row">
+            <label for="right">Right</label><input id="right" type="text" class="text" /> px
+        </div>
+        <div class="row">
+            <label for="bottom">Bottom</label><input id="bottom" type="text" class="text" /> px
+        </div>
+        <div class="row">
+            <label></label><input type="button" id="center" name="center" value="Center" />
+        </div>
+        <div class="row">
+            <label>Position fixed</label><input type="radio" id="fixed" name="fixed" /> Yes <input type="radio" name="fixed" /> No
+        </div>
+        <div class="row">
+            <label for="skin">Skin</label><select id="skin">
+                <option value=""></option>
+                <option value="jg_popup_basic">Basic</option>
+                <option value="jg_popup_black">Black</option>
+                <option value="jg_popup_blue">Blue</option>
+                <option value="jg_popup_clean">Clean</option>
+                <option value="jg_popup_gray">Gray</option>
+                <option value="jg_popup_round">Round</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>Show overlay</label><input type="radio" id="overlay" name="overlay" /> Yes <input type="radio" name="overlay" /> No
+        </div>
+        <div class="row">
+            <label for="opacity">Overlay opacity</label><input id="opacity" type="text" class="text" /> (0 - 100)
+        </div>
+        <div class="row">
+            <label for="color">Overlay color</label><select id="color">
+                <option value=""></option>
+                <option value="#000">Black</option>
+                <option value="#fff">White</option>
+                <option value="#f00">Red</option>
+                <option value="#0f0">Green</option>
+                <option value="#00f">Blue</option>
+            </select>
+        </div>
+        <div class="row">
+            <label>Draggable</label><input type="radio" id="draggable" name="draggable" /> Yes <input type="radio" name="draggable" /> No
+        </div>
+        <div class="row">
+            <label>Resizable</label><input type="radio" id="resizable" name="resizable" /> Yes <input type="radio" name="resizable" /> No
+        </div>
+        <div class="row">
+            <label>Parent scrolling</label><input type="radio" id="parentScrolling" name="parentScrolling" /> Yes <input type="radio" name="parentScrolling" /> No
+        </div>
+    </div>  
+</body>
+</html>

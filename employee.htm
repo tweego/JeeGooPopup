@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Employee</title>
+    <link href="style.css" rel="Stylesheet" type="text/css" />
+    <style type="text/css">
+        body{background-color:transparent}
+        #content{width:500px; margin:0 auto}
+        h1.title{padding:10px 0 20px 0; color:#235a8b; font-style:italic; text-align:center; font-size:20px}
+        #center{padding:3px 10px}
+        div.buttons{padding-top:20px}
+    </style>
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script> 
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+            
+            $('#select').click(function(){
+                window.parent.$.jeegoopopup.open({
+                    url: 'jobs.htm',
+                    center: false,
+                    skinClass: 'jg_popup_round', 
+                    resizable: false,
+                    scrolling: 'no',
+                    onClose: function(data){
+                        if(data)
+                        {
+                            $('#job').val(data.job);
+                            $('#salary').val(data.salary);
+                        }
+                    }
+                });
+            });
+
+            $('#ok').click(function(){
+                window.parent.$.jeegoopopup.close({
+                    name: $('#name').val(),
+                    job: $('#job').val(),
+                    salary: $('#salary').val()
+                });
+            });
+
+            $('#cancel').click(function(){
+                window.parent.$.jeegoopopup.close();
+            });
+        });
+        //]]>
+    </script>
+</head>
+<body>
+    <div id="content">
+        <h1 class="title">Add employee</h1>
+        <div class="row">
+            <label for="name">Name</label><input id="name" type="text" class="text" />
+        </div>
+        <div class="row">
+            <label>Job</label><input id="job" type="text" class="text" disabled="disabled" /> <span id="select" class="select">Select</span>
+        </div>
+        <div class="row">
+            <label>Salary</label><input id="salary" type="text" class="text" disabled="disabled" />
+        </div>
+        <div class="buttons">
+            <input id="ok" type="button" value="Ok" class="button" /><input id="cancel" type="button" value="Cancel" class="button" />
+        </div>
+    </div>  
+</body>
+</html>

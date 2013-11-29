@@ -1,0 +1,30 @@
+﻿#jg_popup_overlay{display:none; position:fixed; width:100%; height:100%; top:0; left:0; z-index:2147483645}
+#jg_popup_inner{display:none; top:0; left:0; position:absolute; z-index:2147483646}
+#jg_popup_table.jg_popup_round{background:none; border:0; border-collapse:collapse; float:none; height:auto; margin:0; padding:0; width:auto; z-index:auto; display:block}
+#jg_popup_table.jg_popup_round td{border:0; height:auto; margin:0; padding:0; text-align:left; vertical-align:top; width:auto; z-index:auto}
+#jg_popup_table.jg_popup_round #jg_popup_tl, 
+#jg_popup_table.jg_popup_round #jg_popup_tr, 
+#jg_popup_table.jg_popup_round #jg_popup_bl, 
+#jg_popup_table.jg_popup_round #jg_popup_br
+{width:10px; height:10px; background-repeat:no-repeat}
+#jg_popup_table.jg_popup_round #jg_popup_tl{background-image:url(images/tl.png)}
+#jg_popup_table.jg_popup_round #jg_popup_tr{background-image:url(images/tr.png)}
+#jg_popup_table.jg_popup_round #jg_popup_bl{background-image:url(images/bl.png)}
+#jg_popup_table.jg_popup_round #jg_popup_br{background-image:url(images/br.png)}
+#jg_popup_table.jg_popup_round #jg_popup_br.jg_popup_resizable{cursor:se-resize; background-image:url(images/br_resizable.png)}
+#jg_popup_table.jg_popup_round #jg_popup_l, 
+#jg_popup_table.jg_popup_round #jg_popup_r, 
+#jg_popup_table.jg_popup_round #jg_popup_content
+{background:#fff}
+#jg_popup_table.jg_popup_round #jg_popup_content{vertical-align:top}
+#jg_popup_table.jg_popup_round #jg_popup_loader{position:absolute; width:100%; left:0; top:0; visibility:hidden}
+#jg_popup_table.jg_popup_round #jg_popup_loader div{width:32px; height:32px; background:url(images/loader.gif) no-repeat; margin:0 auto}
+#jg_popup_table.jg_popup_round #jg_popup_title
+{ 
+    line-height:normal; height:7px; background:#fff; text-decoration:none; text-indent:0; 
+	text-transform:none; color:#999; word-spacing:normal; white-space:nowrap; font-family:Arial, Sans-Serif; 
+	font-size:11px; font-style:normal; font-variant:normal; font-weight:normal; padding:3px 0 0 0
+}
+#jg_popup_table.jg_popup_round #jg_popup_title.jg_popup_draggable{cursor:move}
+#jg_popup_table.jg_popup_round #jg_popup_b{height:10px; background:#fff}
+#jg_popup_table.jg_popup_round #jg_popup_close{position:absolute; right:-12px; top:-12px; cursor:pointer; width:30px; height:30px; background:url(images/closebox.png) no-repeat}

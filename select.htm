@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head>
+    <title>Jeegoopopup, a jQuery popup plugin</title>
+    <link href="style.css" rel="Stylesheet" type="text/css" />
+    <link href="jeegoopopup/skins/round/style.css" rel="Stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="jeegoopopup/jquery.jeegoopopup.1.0.0.js"></script>
+    
+    <script type="text/javascript">
+        //<![CDATA[
+        $(function(){
+
+            $('#add').click(function(){
+
+                $.jeegoopopup.open({
+                    url: 'employee.htm',
+                    width: 500,
+                    height: 200,
+                    center: true,
+                    skinClass: 'jg_popup_round', 
+                    resizable: false,
+                    scrolling: 'no',
+                    onClose: function(data){
+                        if(data)
+                        {
+                            $('<tr><td>' + (parseInt($('#records tr:last td:eq(0)').text()) + 1) + '</td><td>' + data.name + '</td><td>' + data.job + '</td><td>' + data.salary + '</td><td>03-02-2013</td></tr>').appendTo('#records');
+                        }
+                    }
+                });
+            });
+        });
+        //]]>
+    </script>
+</head>
+<body>
+    <div id="outer">
+        <div id="header">
+            <h1><span class="jg_red">J</span><span class="jg_green">ee</span><span class="jg_yellow">g</span><span class="jg_blue">oo</span>popup, <span style="font-size:.7em">a jQuery popup plugin</span></h1>
+            Copyright &copy; 2009 - 2013 <a href="http://www.tweego.nl" target="_blank">TweeGo</a>: <a href="http://www.tweego.nl/jeegoopopup" target="_blank">http://www.tweego.nl/jeegoopopup</a>
+        </div>          
+        <div id="content">   
+            <p>A new popup can be opened from within another popup by calling <strong>window.parent.$.jeegoopopup.open(options);</strong> Only one popup can be shown at any time. Closing the topmost popup reveals the underlying popup.
+            Arguments can be passed from the topmost popup to the underlying popup via the close method: <strong>window.parent.$.jeegoopopup.close(data);</strong>
+            </p>      
+            <table id="records">
+                <tr><th>Id</th><th>Name</th><th>Job</th><th>Salary</th><th>Hiredate</th></tr>
+                <tr><td>1000</td><td>John Smith</td><td>CEO</td><td>8000</td><td>11-06-2005</td></tr>
+                <tr><td>1001</td><td>Jane Doe</td><td>Regional Manager</td><td>6000</td><td>01-22-2002</td></tr>
+                <tr><td>1002</td><td>Bill Johnson</td><td>Assistant Regional Manager</td><td>3500</td><td>05-30-2004</td></tr>
+            </table>
+            <br />
+            <input id="add" type="button" class="button" value="Add" />
+        </div>  
+    </div>
+
+    <a id="prev" href="confirm.htm">Use popup as confirm dialog</a>
+    <a id="next" href="tooltip.htm">Use popup as tooltip</a>
+  
+</body>
+</html>
