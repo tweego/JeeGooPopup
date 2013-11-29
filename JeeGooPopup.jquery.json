@@ -8,7 +8,8 @@
         "tooltip",
         "confirm",
         "dialog",
-		"modal"
+		"modal",
+		"lightbox"
     ],
     "author": {
         "name": "Erik van den Berg",
